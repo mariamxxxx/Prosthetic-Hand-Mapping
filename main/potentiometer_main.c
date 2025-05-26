@@ -4,13 +4,13 @@
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 #include "esp_system.h"
-#include "esp32/rom/ets_sys.h"  // For ets_delay_us()
+#include "esp32/rom/ets_sys.h"  
 
 #define NUM_POTS      5
-#define MAX_VOLTAGE   3300.0   // mV (Assuming 3.3V max input)
+#define MAX_VOLTAGE   3300.0   =
 #define MAX_DEGREE    300.0
-#define DEFAULT_VREF  1100     // mV (Change this if you know your board's Vref)
-#define SAMPLES       16       // Number of samples for averaging
+#define DEFAULT_VREF  1100     
+#define SAMPLES       16       
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"  // Suppress warnings for legacy API
 
@@ -42,7 +42,7 @@ uint32_t get_average_voltage(adc1_channel_t channel, int samples) {
     for (int i = 0; i < samples; i++) {
         int raw = adc1_get_raw(channel);
         total += esp_adc_cal_raw_to_voltage(raw, &adc_chars);
-        ets_delay_us(100);  // small delay between samples
+        ets_delay_us(100);  
     }
     return total / samples;
 }
